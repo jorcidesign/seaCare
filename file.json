@@ -1,42 +1,37 @@
 {
   "niveles": [
     {
-      "nombre": "Nivel 1",
+      "nombre": "Aves Marinas",
       "preguntas": [
         {
-          "pregunta": "¿Cuál es la capital de Francia?",
-          "alternativas": ["Londres", "París", "Madrid", "Roma"],
+          "pregunta": "Estás en la cubierta del barco y observas que un tripulante retira de la manga de succión a un ave, ¿qué es lo primero que se debe observar en el animal?",
+          "alternativas": [
+            "Si está viva",
+            "Si está activa",
+            "Si tiene heridas o sangrados",
+            "Todas las anteriores"
+          ],
+          "respuestaCorrecta": 3
+        },
+        {
+          "pregunta": "Si el ave que se manipula tiene las plumas mojadas, ¿qué debes hacer?",
+          "alternativas": [
+            "Soplar las plumas para que se sequen con rapidez",
+            "Colocar el ave en una caja con agujeros o kennel y transportarla a una zona segura en donde llegue el sol para que se sequen las plumas",
+            "Secar las plumas con una toalla frotándola con fuerza",
+            "Ninguna de las anteriores"
+          ],
           "respuestaCorrecta": 1
         },
         {
-          "pregunta": "¿En qué año se descubrió América?",
-          "alternativas": ["1492", "1776", "1812", "1533"],
-          "respuestaCorrecta": 0
-        },
-        {
-          "pregunta": "¿Cuál es el elemento químico más abundante en la Tierra?",
-          "alternativas": ["Hidrógeno", "Oxígeno", "Carbono", "Nitrógeno"],
-          "respuestaCorrecta": 1
-        }
-      ]
-    },
-    {
-      "nombre": "Nivel 2",
-      "preguntas": [
-        {
-          "pregunta": "¿Cuál es la montaña más alta del mundo?",
-          "alternativas": ["Monte Kilimanjaro", "Monte Fuji", "Monte Everest", "Monte Aconcagua"],
-          "respuestaCorrecta": 2
-        },
-        {
-          "pregunta": "¿Quién escribió 'Don Quijote de la Mancha'?",
-          "alternativas": ["Miguel de Cervantes", "Gabriel García Márquez", "Jorge Luis Borges", "Pablo Neruda"],
-          "respuestaCorrecta": 0
-        },
-        {
-          "pregunta": "¿En qué año terminó la Segunda Guerra Mundial?",
-          "alternativas": ["1945", "1918", "1939", "1950"],
-          "respuestaCorrecta": 0
+          "pregunta": "¿Por qué crees que es importante que aprendas a manipular a las aves?",
+          "alternativas": [
+            "Para evitar lastimarlas",
+            "Para lograr liberarlas",
+            "Para preservar su vida",
+            "Todas las anteriores"
+          ],
+          "respuestaCorrecta": 3
         }
       ]
     }
