@@ -2,6 +2,7 @@
   "niveles": [
     {
       "nombre": "Aves Marinas",
+	  "totalPreguntas": 3,
       "preguntas": [
         {
           "pregunta": "Estás en la cubierta del barco y observas que un tripulante retira de la manga de succión a un ave, ¿qué es lo primero que se debe observar en el animal?",
