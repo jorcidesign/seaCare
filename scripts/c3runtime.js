@@ -3689,6 +3689,20 @@ err)}}};
 
 {
 self["C3_Shaders"] = {};
+self["C3_Shaders"]["warpripple"] = {
+	glsl: "#ifdef GL_FRAGMENT_PRECISION_HIGH\n#define highmedp highp\n#else\n#define highmedp mediump\n#endif\nvarying mediump vec2 vTex;\nuniform lowp sampler2D samplerFront;\nuniform mediump vec2 srcOriginStart;\nuniform mediump vec2 srcOriginEnd;\nuniform highmedp float seconds;\nuniform mediump vec2 pixelSize;\nuniform mediump float freq;\nuniform mediump float amp;\nuniform mediump float speed;\nconst mediump float PI = 3.1415926;\nvoid main(void)\n{\nmediump vec2 srcOriginSize = srcOriginEnd - srcOriginStart;\nmediump vec2 tex = (vTex - srcOriginStart) / srcOriginSize;\ntex = tex * 2.0 - 1.0;\nmediump float d = length(tex);\nmediump float a = atan(tex.y, tex.x);\nd += sin((d * 2.0 * PI) * freq / (pixelSize.x * 750.0) + (seconds * speed)) * amp * (pixelSize.x * 750.0);\ntex.x = cos(a) * d;\ntex.y = sin(a) * d;\ntex = (tex + 1.0) / 2.0;\ntex = clamp(tex, 0.0, 1.0);\ntex = tex * srcOriginSize + srcOriginStart;\ngl_FragColor = texture2D(samplerFront, tex);\n}",
+	glslWebGL2: "",
+	wgsl: "%%SAMPLERFRONT_BINDING%% var samplerFront : sampler;\n%%TEXTUREFRONT_BINDING%% var textureFront : texture_2d<f32>;\nstruct ShaderParams {\nfreq : f32,\namp : f32,\nspeed : f32\n};\n%%SHADERPARAMS_BINDING%% var<uniform> shaderParams : ShaderParams;\n%%C3PARAMS_STRUCT%%\n%%C3_UTILITY_FUNCTIONS%%\n%%FRAGMENTINPUT_STRUCT%%\n%%FRAGMENTOUTPUT_STRUCT%%\nconst pi : f32 = 3.1415926;\n@fragment\nfn main(input : FragmentInput) -> FragmentOutput\n{\nvar pixelSize : vec2<f32> = c3_getPixelSize(textureFront);\nvar tex = c3_srcOriginToNorm(input.fragUV);\ntex = tex * 2.0 - 1.0;\nvar d : f32 = length(tex);\nvar a = atan2(tex.y, tex.x);\nd = d + sin((d * 2.0 * pi) * shaderParams.freq / (pixelSize.x * 750.0) + (c3Params.seconds * shaderParams.speed)) * shaderParams.amp * (pixelSize.x * 750.0);\ntex.x = cos(a) * d;\ntex.y = sin(a) * d;\ntex = (tex + 1.0) / 2.0;\ntex = c3_clamp2(tex, 0.0, 1.0);\ntex = c3_normToSrcOrigin(tex);\nvar output : FragmentOutput;\noutput.color = textureSample(textureFront, samplerFront, tex);\nreturn output;\n}",
+	blendsBackground: false,
+	usesDepth: false,
+	extendBoxHorizontal: 50,
+	extendBoxVertical: 50,
+	crossSampling: false,
+	mustPreDraw: false,
+	preservesOpaqueness: false,
+	animated: true,
+	parameters: [["freq",0,"float"],["amp",0,"percent"],["speed",0,"float"]]
+};
 self["C3_Shaders"]["sepia"] = {
 	glsl: "varying mediump vec2 vTex;\nuniform lowp sampler2D samplerFront;\nuniform lowp float intensity;\nvoid main(void)\n{\nlowp vec4 front = texture2D(samplerFront, vTex);\nlowp vec4 sepia = front * mat4( 0.3588, 0.7044, 0.1368, 0.0,\n0.2990, 0.5870, 0.1140, 0.0,\n0.2392, 0.4696, 0.0912, 0.0,\n0.0,\t0.0,\t0.0,\t1.0);\ngl_FragColor = mix(front, vec4(sepia.r, sepia.g, sepia.b, front.a), intensity);\n}",
 	glslWebGL2: "",
@@ -4353,6 +4367,22 @@ opts.tags,opts.startValue,endValue,time,easeIndex,!!opts.destroyOnComplete,!!opt
 }
 
 {
+'use strict';{const C3=self.C3;C3.Behaviors.Fade=class FadeBehavior extends C3.SDKBehaviorBase{constructor(opts){super(opts)}Release(){super.Release()}}}{const C3=self.C3;C3.Behaviors.Fade.Type=class FadeType extends C3.SDKBehaviorTypeBase{constructor(behaviorType){super(behaviorType)}Release(){super.Release()}OnCreate(){}}}
+{const C3=self.C3;const C3X=self.C3X;const IBehaviorInstance=self.IBehaviorInstance;const FADE_IN_TIME=0;const WAIT_TIME=1;const FADE_OUT_TIME=2;const DESTROY=3;const ACTIVE_AT_START=4;C3.Behaviors.Fade.Instance=class FadeInstance extends C3.SDKBehaviorInstanceBase{constructor(behInst,properties){super(behInst);this._fadeInTime=0;this._waitTime=0;this._fadeOutTime=0;this._destroy=true;this._activeAtStart=true;this._setMaxOpacity=false;this._stage=0;this._stageTime=C3.New(C3.KahanSum);this._maxOpacity=
+this._inst.GetWorldInfo().GetOpacity()||1;if(properties){this._fadeInTime=properties[FADE_IN_TIME];this._waitTime=properties[WAIT_TIME];this._fadeOutTime=properties[FADE_OUT_TIME];this._destroy=!!properties[DESTROY];this._activeAtStart=!!properties[ACTIVE_AT_START];this._stage=this._activeAtStart?0:3}if(this._activeAtStart)if(this._fadeInTime===0){this._stage=1;if(this._waitTime===0)this._stage=2}else{this._inst.GetWorldInfo().SetOpacity(0);this._runtime.UpdateRender()}this._StartTicking()}Release(){super.Release()}SaveToJson(){return{"fit":this._fadeInTime,
+"wt":this._waitTime,"fot":this._fadeOutTime,"d":this._destroy,"s":this._stage,"st":this._stageTime.Get(),"mo":this._maxOpacity}}LoadFromJson(o){this._fadeInTime=o["fit"];this._waitTime=o["wt"];this._fadeOutTime=o["fot"];this._destroy=o["d"];this._stage=o["s"];this._stageTime.Set(o["st"]);this._maxOpacity=o["mo"];if(this._stage===3)this._StopTicking();else this._StartTicking()}Tick(){const dt=this._runtime.GetDt(this._inst);this._stageTime.Add(dt);const wi=this._inst.GetWorldInfo();if(this._stage===
+0){wi.SetOpacity(this._stageTime.Get()/this._fadeInTime*this._maxOpacity);this._runtime.UpdateRender();if(wi.GetOpacity()>=this._maxOpacity){wi.SetOpacity(this._maxOpacity);this._stage=1;this._stageTime.Reset();this.DispatchScriptEvent("fadeinend");this.Trigger(C3.Behaviors.Fade.Cnds.OnFadeInEnd)}}if(this._stage===1)if(this._stageTime.Get()>=this._waitTime){this._stage=2;this._stageTime.Reset();this.DispatchScriptEvent("waitend");this.Trigger(C3.Behaviors.Fade.Cnds.OnWaitEnd)}if(this._stage===2)if(this._fadeOutTime!==
+0){wi.SetOpacity(this._maxOpacity-this._stageTime.Get()/this._fadeOutTime*this._maxOpacity);this._runtime.UpdateRender();if(wi.GetOpacity()<=0){this._stage=3;this._stageTime.Reset();this.DispatchScriptEvent("fadeoutend");this.Trigger(C3.Behaviors.Fade.Cnds.OnFadeOutEnd);if(this._destroy)this._runtime.DestroyInstance(this._inst)}}else{this._stage=3;this._stageTime.Reset()}if(this._stage===3)this._StopTicking()}_StartFade(){if(!this._activeAtStart&&!this._setMaxOpacity){this._maxOpacity=this._inst.GetWorldInfo().GetOpacity()||
+1;this._setMaxOpacity=true}if(this._stage===3)this.Start()}_RestartFade(){this.Start()}Start(){this._stage=0;this._stageTime.Reset();if(this._fadeInTime===0){this._stage=1;if(this._waitTime===0)this._stage=2}else{this._inst.GetWorldInfo().SetOpacity(0);this._runtime.UpdateRender()}this._StartTicking()}_SetFadeInTime(t){this._fadeInTime=Math.max(t,0)}_GetFadeInTime(){return this._fadeInTime}_SetWaitTime(t){this._waitTime=Math.max(t,0)}_GetWaitTime(){return this._waitTime}_SetFadeOutTime(t){this._fadeOutTime=
+Math.max(t,0)}_GetFadeOutTime(){return this._fadeOutTime}GetPropertyValueByIndex(index){switch(index){case FADE_IN_TIME:return this._GetFadeInTime();case WAIT_TIME:return this._GetWaitTime();case FADE_OUT_TIME:return this._GetFadeOutTime();case DESTROY:return this._destroy}}SetPropertyValueByIndex(index,value){switch(index){case FADE_IN_TIME:this._SetFadeInTime(value);break;case WAIT_TIME:this._SetWaitTime(value);break;case FADE_OUT_TIME:this._SetFadeOutTime(value);break;case DESTROY:this._destroy=
+!!value;break}}GetDebuggerProperties(){const prefix="behaviors.fade";return[{title:"$"+this.GetBehaviorType().GetName(),properties:[{name:prefix+".properties.fade-in-time.name",value:this._GetFadeInTime(),onedit:v=>this._SetFadeInTime(v)},{name:prefix+".properties.wait-time.name",value:this._GetWaitTime(),onedit:v=>this._SetWaitTime(v)},{name:prefix+".properties.fade-out-time.name",value:this._GetFadeOutTime(),onedit:v=>this._SetFadeOutTime(v)},{name:prefix+".debugger.stage",value:[prefix+".debugger."+
+["fade-in","wait","fade-out","done"][this._stage]]}]}]}GetScriptInterfaceClass(){return self.IFadeBehaviorInstance}};const map=new WeakMap;self.IFadeBehaviorInstance=class IFadeBehaviorInstance extends IBehaviorInstance{constructor(){super();map.set(this,IBehaviorInstance._GetInitInst().GetSdkInstance())}startFade(){map.get(this)._StartFade()}restartFade(){map.get(this)._RestartFade()}set fadeInTime(t){C3X.RequireFiniteNumber(t);map.get(this)._SetFadeInTime(t)}get fadeInTime(){return map.get(this)._GetFadeInTime()}set waitTime(t){C3X.RequireFiniteNumber(t);
+map.get(this)._SetWaitTime(t)}get waitTime(){return map.get(this)._GetWaitTime()}set fadeOutTime(t){C3X.RequireFiniteNumber(t);map.get(this)._SetFadeOutTime(t)}get fadeOutTime(){return map.get(this)._GetFadeOutTime()}}}{const C3=self.C3;C3.Behaviors.Fade.Cnds={OnFadeOutEnd(){return true},OnFadeInEnd(){return true},OnWaitEnd(){return true}}}
+{const C3=self.C3;C3.Behaviors.Fade.Acts={StartFade(){this._StartFade()},RestartFade(){this._RestartFade()},SetFadeInTime(t){this._SetFadeInTime(t)},SetWaitTime(t){this._SetWaitTime(t)},SetFadeOutTime(t){this._SetFadeOutTime(t)}}}{const C3=self.C3;C3.Behaviors.Fade.Exps={FadeInTime(){return this._GetFadeInTime()},WaitTime(){return this._GetWaitTime()},FadeOutTime(){return this._GetFadeOutTime()}}};
+
+}
+
+{
 'use strict';{const C3=self.C3;C3.Behaviors.MoveTo=class MoveToBehavior extends C3.SDKBehaviorBase{constructor(opts){super(opts)}Release(){super.Release()}}}{const C3=self.C3;C3.Behaviors.MoveTo.Type=class MoveToType extends C3.SDKBehaviorTypeBase{constructor(behaviorType){super(behaviorType)}Release(){super.Release()}OnCreate(){}}}
 {const C3=self.C3;const C3X=self.C3X;const IBehaviorInstance=self.IBehaviorInstance;const PROP_MAX_SPEED=0;const PROP_ACCELERATION=1;const PROP_DECELERATION=2;const PROP_ROTATE_SPEED=3;const PROP_SET_ANGLE=4;const PROP_STOP_ON_SOLIDS=5;const PROP_ENABLED=6;C3.Behaviors.MoveTo.Instance=class MoveToInstance extends C3.SDKBehaviorInstanceBase{constructor(behInst,properties){super(behInst);this._maxSpeed=200;this._acc=600;this._dec=600;this._rotateSpeed=0;this._setAngle=true;this._stopOnSolids=false;
 this._isEnabled=true;this._speed=0;this._movingAngle=this.GetWorldInfo().GetAngle();this._waypoints=[];if(properties){this._maxSpeed=properties[PROP_MAX_SPEED];this._acc=properties[PROP_ACCELERATION];this._dec=properties[PROP_DECELERATION];this._rotateSpeed=C3.toRadians(properties[PROP_ROTATE_SPEED]);this._setAngle=properties[PROP_SET_ANGLE];this._stopOnSolids=properties[PROP_STOP_ON_SOLIDS];this._isEnabled=properties[PROP_ENABLED]}this._timelineInfo=null;this._lastBezierPosition=NaN;this._lastBezierSegment=
@@ -4406,6 +4436,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Behaviors.Tween,
 		C3.Plugins.Timeline,
 		C3.Plugins.Button,
+		C3.Behaviors.Fade,
 		C3.Behaviors.MoveTo,
 		C3.Plugins.Sprite.Cnds.OnCreated,
 		C3.Plugins.System.Cnds.OnLayoutStart,
@@ -4432,8 +4463,18 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Acts.Wait,
 		C3.Plugins.System.Acts.NextPrevLayout,
 		C3.Plugins.Touch.Cnds.OnTapGestureObject,
-		C3.Plugins.System.Acts.GoToLayout,
+		C3.Plugins.Timeline.Acts.PlayTimeline,
+		C3.Behaviors.Fade.Acts.StartFade,
+		C3.Plugins.Sprite.Acts.Destroy,
 		C3.Plugins.Touch.Cnds.IsTouchingObject,
+		C3.Plugins.Timeline.Acts.StopTimelineByTags,
+		C3.Behaviors.MoveTo.Acts.MoveToPosition,
+		C3.Plugins.Touch.Cnds.OnTapGesture,
+		C3.Plugins.System.Cnds.CompareVar,
+		C3.Plugins.Sprite.Cnds.IsOnScreen,
+		C3.Behaviors.MoveTo.Cnds.IsMoving,
+		C3.Plugins.System.Acts.SetVar,
+		C3.Plugins.System.Acts.GoToLayout,
 		C3.Plugins.Touch.Cnds.OnTouchObject,
 		C3.Plugins.System.Acts.SetBoolVar,
 		C3.Plugins.Sprite.Acts.SetVisible,
@@ -4450,7 +4491,6 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Sprite.Acts.StopAnim,
 		C3.Plugins.Text.Acts.SetText,
 		C3.Plugins.Json.Exps.Get,
-		C3.Plugins.System.Acts.SetVar,
 		C3.Plugins.Sprite.Acts.SetAnim,
 		C3.Plugins.Sprite.Exps.IID,
 		C3.Plugins.Sprite.Cnds.IsBoolInstanceVarSet,
@@ -4471,11 +4511,10 @@ self.C3_GetObjectRefTable = function () {
 		C3.Behaviors.Timer.Cnds.OnTimer,
 		C3.Plugins.System.Acts.SubVar,
 		C3.Behaviors.Timer.Acts.StopTimer,
-		C3.ScriptsInEvents.Equizzes_Event40_Act2,
+		C3.ScriptsInEvents.Equizzes_Event42_Act2,
 		C3.Plugins.System.Acts.WaitForSignal,
-		C3.ScriptsInEvents.Equizzes_Event41_Act2,
+		C3.ScriptsInEvents.Equizzes_Event43_Act2,
 		C3.Plugins.System.Acts.Signal,
-		C3.Plugins.System.Cnds.CompareVar,
 		C3.Plugins.System.Acts.GoToLayoutByName
 	];
 };
@@ -4530,16 +4569,23 @@ self.C3_JsPropNameTable = [
 	{c8070aad73f37c6fc123241e97b741d: 0},
 	{Sprite8: 0},
 	{bd170bb4655992be36d6034b35224fd: 0},
-	{pescador: 0},
 	{pescador2: 0},
 	{botePesquero: 0},
 	{stolengull: 0},
 	{Button: 0},
 	{cd1d10b6d98ddb8fce79fbba10dd5e: 0},
+	{Fade: 0},
 	{playButton: 0},
 	{playButtonTouch: 0},
-	{Family2: 0},
+	{wouterdolphin: 0},
 	{MoveTo: 0},
+	{saludo1: 0},
+	{saludo2: 0},
+	{erFrame: 0},
+	{pizarra: 0},
+	{pizarra2: 0},
+	{trophy_dribbble: 0},
+	{Family2: 0},
 	{Family3: 0},
 	{Family4: 0},
 	{Family5: 0},
@@ -4547,11 +4593,13 @@ self.C3_JsPropNameTable = [
 	{despierto: 0},
 	{isGamePaused: 0},
 	{correct: 0},
+	{introOrder: 0},
 	{correctValue: 0},
 	{indicePregunta: 0},
 	{isAnswered: 0},
 	{countDown: 0},
 	{cincuenta: 0},
+	{currentLevel: 0},
 	{nivel: 0}
 ];
 }
@@ -4679,10 +4727,21 @@ self.C3_ExpressionFuncs = [
 		() => "cutScene",
 		() => 2.4,
 		() => 1.5,
+		() => 0.5,
 		() => "",
 		() => 0.36,
 		() => 0.04,
 		() => 0.41,
+		() => "intro",
+		() => 109,
+		() => 256,
+		() => 0,
+		() => -200,
+		() => 2,
+		() => 136,
+		() => 243,
+		() => 89,
+		() => 301,
 		() => "Configuracíon inicial ",
 		() => "json",
 		() => "vidas",
@@ -4694,13 +4753,13 @@ self.C3_ExpressionFuncs = [
 		},
 		() => "comodin",
 		() => "indicePregunta",
-		() => 0,
 		() => "QuizzAvesMarinas",
 		p => {
 			const n0 = p._GetNode(0);
 			return () => n0.ExpObject("indicePregunta");
 		},
 		() => "totalPreg",
+		() => "QuizzTortugas",
 		() => "Interfaz de usuario",
 		p => {
 			const n0 = p._GetNode(0);
