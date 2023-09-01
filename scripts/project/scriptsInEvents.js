@@ -3,14 +3,14 @@
 
 const scriptsInEvents = {
 
-	async Equizzes_Event42_Act2(runtime, localVars)
+	async Equizzes_Event44_Act2(runtime, localVars)
 	{
-		alert("Inténtalo de nuevo")
+		console.log("Inténtalo de nuevo")
 	},
 
-	async Equizzes_Event43_Act2(runtime, localVars)
+	async Equizzes_Event45_Act2(runtime, localVars)
 	{
-		alert("Sigue así")
+		console.log("Buen trabajo")
 	}
 
 };
