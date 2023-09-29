@@ -3,16 +3,16 @@
 
 const scriptsInEvents = {
 
-	async Emain_Event9_Act4(runtime, localVars)
+	async Emain_Event9_Act5(runtime, localVars)
 	{
-		//editar aquí
-			alert("hola mundo")
+		//editar aquí (evento del botón finalizar)
+			console.log("juego terminado")
 		
 	},
 
 	async Emain_Event14_Act1(runtime, localVars)
 	{
-		//Editar aquí
+		//Editar aquí (eventos al iniciar el juego)
 		console.log("juego iniciado");
 	},
 
