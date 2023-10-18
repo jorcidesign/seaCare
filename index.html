@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Mar De Conocimientos</title>
+<title>Mar de Conocimientos</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
 
 <meta name="generator" content="Scirra Construct">
@@ -26,27 +26,30 @@ if (location.protocol.substr(0, 4) === "file")
 }
 </script>
 
-<script>
-	function verificarOrientacion() {
-	  // Verificar si el ancho de la ventana es menor que un umbral (puedes ajustar este valor)
-	  const umbralAncho = 768; // Ejemplo: 768px es un ancho típico de dispositivos móviles
-	
-	  if (window.innerWidth < umbralAncho && window.innerHeight < window.innerWidth) {
-		// El dispositivo es lo suficientemente pequeño y está en orientación vertical
-		alert('Por favor, coloca tu dispositivo en posición vertical para una mejor experiencia.');
-	  }
-	}
-	
-	// Verificar la orientación cuando se carga la página y en cada cambio de tamaño de ventana
-	// verificarOrientacion();
-	window.addEventListener('load', verificarOrientacion);
-	window.addEventListener('resize', verificarOrientacion);
-	</script>
-t>
-		<h2 id="notSupportedTitle">This content requires JavaScript</h2>
+
+	<noscript>
+		<div id="notSupportedWrap">
+			<h2 id="notSupportedTitle">This content requires JavaScript</h2>
 			<p class="notSupportedMessage">JavaScript appears to be disabled. Please enable it to view this content.</p>
 		</div>
 	</noscript>
+
+	<script>
+		function verificarOrientacion() {
+		  // Verificar si el ancho de la ventana es menor que un umbral (puedes ajustar este valor)
+		  const umbralAncho = 768; // Ejemplo: 768px es un ancho típico de dispositivos móviles
+		
+		  if (window.innerWidth < umbralAncho && window.innerHeight < window.innerWidth) {
+			// El dispositivo es lo suficientemente pequeño y está en orientación vertical
+			alert('Por favor, coloca tu dispositivo en posición vertical para una mejor experiencia.');
+		  }
+		}
+		
+		// Verificar la orientación cuando se carga la página y en cada cambio de tamaño de ventana
+		// verificarOrientacion();
+		window.addEventListener('load', verificarOrientacion);
+		window.addEventListener('resize', verificarOrientacion);
+		</script>
 	<script src="scripts/supportcheck.js"></script>
 	<script src="scripts/offlineclient.js" type="module"></script>
 	<script src="scripts/main.js" type="module"></script>
