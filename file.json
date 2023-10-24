@@ -5,31 +5,31 @@
       "totalPreguntas": 3,
       "preguntas": [
         {
-          "pregunta": "Estás en la cubierta del barco y observas que un tripulante retira de bodega a un ave, ¿qué es lo primero que debes observar en el animal?",
+          "pregunta": "Estás en la cubierta del barco y observas que un ave es retirada de la bodega, ¿qué es lo primero que debes hacer?",
           "alternativas": [
-            "Si está viva",
-            "Si está agotada (cansada).",
-            "Si tiene heridas o sangrados",
+            "Observa si está viva.",
+            "Observa si está cansada/agotada.",
+            "Verifica si tiene heridas o está sangrando.",
             "Todas las anteriores"
           ],
           "respuestaCorrecta": 3
         },
         {
-          "pregunta": "Si el ave que se manipula tiene las plumas mojadas, ¿qué debes hacer?",
+          "pregunta": "El ave que estás manipulando, tiene las plumas mojadas, ¿qué debes hacer?",
           "alternativas": [
-            "Soplar las plumas para que se sequen rápido",
-            "Colocarla en una caja/kennel con agujeros y transportarla a una zona segura en donde llegue el sol para que se seque",
-            "Secar sus plumas y frotarla con fuerza usando  una toalla",
+            "Sopla las plumas para que se sequen.",
+            "Colócala en una caja/kennel, y llévala a una zona segura y soleada para que se seque.",
+            "Seca sus plumas y frotarla con fuerza usando una toalla",
             "Ninguna de las anteriores"
           ],
           "respuestaCorrecta": 1
         },
         {
-          "pregunta": "¿Por qué crees que es importante que aprendas a manipular a las aves?",
+          "pregunta": "¿Por qué crees que es importante aprender a manipular aves marinas?",
           "alternativas": [
-            "Para evitar lastimarlas",
-            "Para reducir el riesgo de mortalidad post-liberación",
-            "Para no alterar el ecosistema",
+            "Para evitar lastimarlas.",
+            "Para reducir el riesgo de mortalidad post-liberación.",
+            "Para no generar un desequilibrio en el ecosistema.",
             "Todas las anteriores"
           ],
           "respuestaCorrecta": 3
@@ -41,32 +41,32 @@
       "totalPreguntas": 3,
       "preguntas": [
         {
-          "pregunta": "Vas a iniciar el procedimiento de liberación de una tortuga marina, tienes puesto tu equipo de protección (EPP´s), y ahora ¿De dónde debes manipularla?",
+          "pregunta": "Ya tienes puestos tus EPP´s y vas a liberar una tortuga marina. ¿De dónde debes manipularla?",
           "alternativas": [
             "De la parte delantera y trasera del caparazón.",
-            "De la parte delantera y trasera del caparazón, y de las aletas.",
+            "De las aletas y el caparazón.",
             "De la panza y las aletas.",
             "Ninguna de las anteriores"
           ],
           "respuestaCorrecta": 0
         },
         {
-          "pregunta": "Si la tortuga se encuentra inactiva, ¿cuáles son los pasos a seguir para verificar si está viva?",
+          "pregunta": "Observas que la tortuga está inactiva y no estás seguro si está viva ¿qué debes hacer?",
           "alternativas": [
-            "La tortuga debe ser colocada boca abajo a manera de reposo, sobre paños, cabos o una llanta, con sus aletas hacia afuera para que pueda moverlas si reacciona.",
-            "Dale pequeños toques sobre el párpado superior de los ojos o en la cola cerca al recto.",
-            "Intenta abrirle la boca con mucho cuidado y verifica si la abre con facilidad. Si ha sufrido de ahogamiento, usa una tabla e inclina la parte trasera de su cuerpo por unos minutos para que elimine el agua por la boca.",
-            "Todas las anteriores"
+            "Dale pequeños toques sobre sus párpados o en la cola cerca al recto.",
+            "Intenta abrirle la boca con cuidado. Si la abre con facilidad está viva.",
+            "Intenta darle de comer.",
+            "A y B son correctas."
           ],
           "respuestaCorrecta": 3
         },
         {
           "pregunta": "¿Cuáles son las especies de tortugas que existen en aguas peruanas?",
           "alternativas": [
-            "Tortuga verde",
-            "Tortuga verde y tortuga cabezona",
-            "Tortuga verde, tortuga cabezona, tortuga carey, tortuga pico de loro y la tortuga dorso de cuero.",
-            "Tortuga verde, tortuga cabezona, tortuga carey y tortuga pico de loro"
+            "Tortuga verde o carey.",
+            "Tortuga verde y cabezona.",
+            "Tortuga verde, cabezona, carey, golfina (pico de loro) y dorso de cuero (laúd).",
+            "Tortuga verde, cabezona, carey y golfina (pico de loro)."
           ],
           "respuestaCorrecta": 2
         }
@@ -79,39 +79,39 @@
         {
           "pregunta": "Para liberar una móbula ¿Cuál de los siguientes pasos debes considerar?",
           "alternativas": [
-            "Manipularla con la ayuda de 3 o más compañeros.",
+            "Es necesaria la ayuda de 3 o más compañeros.",
             "Para evitar lesiones utiliza una camilla, lona o restos de paño para su traslado y liberación.",
-            "En equipo, con la tripulación, identifiquen el mejor momento para realizar la liberación.",
+            "Junto con la tripulación, identifiquen el mejor momento para realizar la liberación.",
             "Todas las anteriores"
           ],
           "respuestaCorrecta": 3
         },
         {
-          "pregunta": "Vas a iniciar el procedimiento de liberación de una raya en cubierta y cuentas con tu equipo de protección (EPP´s) ¿De dónde debes sujetar a la raya?",
+          "pregunta": "Ya tienes puestos tus EPP´s y vas a liberar una raya. ¿De dónde debes manipularla?",
           "alternativas": [
-            "De las aletas pectorales con ambas manos, manteniendo la cola y el aguijón alejado del cuerpo.",
-            "De las hendiduras branquiales cerca al cuerpo.",
-            "De los lóbulos cefálicos",
-            "De las aletas pectorales con una sola mano."
+            "De las aletas pectorales, manteniendo la cola y el aguijón alejados del cuerpo.",
+            "De las hendiduras branquiales.",
+            "De los lóbulos cefálicos o la cola.",
+            "Ninguna de las anteriores."
           ],
           "respuestaCorrecta": 0
         },
         {
-          "pregunta": "Si hay un tiburón en cubierta y está muy inquieto, ¿cómo podrías calmarlo para luego manipularlo?",
+          "pregunta": "Hay un tiburón muy inquieto en cubierta y necesitas liberarlo, ¿cómo lo tranquilizas?",
           "alternativas": [
-            "Debe quedarse en cubierta el mayor tiempo posible hasta que se tranquilice.",
-            "Se coloca una manta sobre sus aletas.",
-            "Con la ayuda de un compañero, se coloca una manta sobre sus ojos.",
-            "Se le agarra de la cola para que no se mueva."
+            "Colócalo en un kennel hasta que se tranquilice.",
+            "Sujétalo de las branquias y lo libéralo rápidamente.",
+            "Con la ayuda de un compañero, coloca una manta sobre sus ojos.",
+            "Intenta darle de comer."
           ],
           "respuestaCorrecta": 2
         },
         {
-          "pregunta": "Pero, si el tiburón está en el agua y necesito liberarlo desde ahí ¿Qué debería hacer?",
+          "pregunta": "Hay un tiburón en el agua y necesita liberarlo desde ahí ¿Qué debes hacer?",
           "alternativas": [
-            "Con la ayuda del capitán, soltar un extremo de la red para que el animal salga por su cuenta.",
-            "Si es mediano o grande, introducir con mucho cuidado la camilla en la bolsa y con esta retirar al animal para liberarlo.",
-            "Si es pequeño, introducir chinguillo en la bolsa y con este retirar al animal para liberarlo.",
+            "Si es posible, hacer maniobras desde el barco para soltar parte de la bolsa, así el tiburón saldrá por su cuenta.",
+            "Si es pequeño, introduce un chinguillo en la bolsa, retira al animal y luego libéralo.",
+            "Si es mediano o grande, introduce una camilla en la bolsa, retira al animal y luego libéralo.",
             "Todas las anteriores"
           ],
           "respuestaCorrecta": 3
@@ -123,34 +123,34 @@
       "totalPreguntas": 3,
       "preguntas": [
         {
-          "pregunta": "Desde el barco, los tripulantes visualizan un delfín dentro del cerco, ¿qué es lo primero que se debe hacer?",
+          "pregunta": "Desde el barco, tú y los demás tripulantes observan un delfín en el cerco, ¿qué deben hacer?",
           "alternativas": [
-            "En conjunto con el capitán deben analizar la situación para salvaguardar la seguridad humana y del delfín.",
-            "Si la situación lo amerita, se recomienda realizar maniobras desde el barco para que se suelte parte de la bolsa y el animal solo logre salir por su cuenta.",
-            "Los tripulantes en conjunto deben decidir quién ingresará a la bolsa para liberar al delfín.",
+            "Junto con el capitán analicen la situación para salvaguardar la seguridad humana y del delfín.",
+            "Si es posible, hacer maniobras desde el barco para soltar parte de la bolsa, así el delfín saldrá por su cuenta.",
+            "Decidir quién ingresará a la bolsa para liberar al delfín.",
             "a y b son correctas."
           ],
           "respuestaCorrecta": 3
         },
         {
-          "pregunta": "¿cuáles son las herramientas e insumos para la manipulación y liberación que deben considerar los tripulantes para liberar un delfín?",
+          "pregunta": "¿Qué herramientas e insumos te puedan ayudar para manipular, transportar y/o liberar un delfín?",
           "alternativas": [
-            "Casco, botas, lentes de seguridad y guantes",
-            "Casco, botas, lentes de seguridad, guantes y toalla o manta.",
-            "Casco, botas, lentes de seguridad, guantes, toalla o manta y rollos de cabo o restos de cabo.",
-            "Casco, botas, lentes de seguridad, guantes, toalla o manta, rollos de cabo o restos de cabo y camilla."
+            "EPP´s.",
+            "Chinguillos.",
+            "Chinguillos, toallas limpias y tablas de madera.",
+            "EPP´s, toallas o mantas limpias, y una camilla."
           ],
           "respuestaCorrecta": 3
         },
         {
-          "pregunta": "Terminado el proceso de manipulación y liberación, ¿qué debes hacer?",
+          "pregunta": "Terminada la liberación, ¿qué debes hacer?",
           "alternativas": [
-            "Desinfectar los guantes y lavarse las manos con jabón.",
-            "Desinfectar los guantes, lavarse las manos con jabón, y registrar la información en la bitácora de pesca.",
-            "Lavarse las manos y la cara con agua.",
+            "Desinfecta los guantes y lava tu cara con agua.",
+            "Desinfecta los guantes, lava tus manos con jabón, y registra la información en la bitácora.",
+            "Lávate las manos y la cara con agua.",
             "Ninguna de las anteriores."
           ],
-          "respuestaCorrecta": 0
+          "respuestaCorrecta": 1
         }
       ]
     }
